@@ -11,11 +11,20 @@ import os
 
 class Imagen():
   def __init__(self,Name,Rout,Label,Weigth):
+## incluir el id de imagen
     self.Name=Name
     self.Rout=Rout
-    self.Label=Label
+    self.Label=Label # Tiene que ser una lista
     self.Weigth=Weigth
 
+# La Etiqueta es una lista por ejemplo ["Gatos","Perros","Lugares"]
+
+## Vas a construir una structura (lista o arbol que permita agregar elementos imagen)
+## Incluir los siguientes metodos
+## Buscar Imagenes por categoria
+## Mostrar imagenes por categoria
+	
+	
 mypat="C:\Users\Luis Manuel\Desktop\Proyecto"
 
 class Labels():  
