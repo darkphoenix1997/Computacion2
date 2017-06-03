@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # In[ ]:
@@ -45,3 +44,9 @@ class Labels():
 						print 'Existe', len(etiquetas[b]),'imagenes en esta categoria:',etiquetas[a]
 					else:
 						print "No es posible encontrar esa categoria"
+
+					c=raw_input("Imagen a buscar:")
+					if c in etiquetas:
+						print etiquetas[a]
+					else:
+						print "Verifique la etiqueta del elemento a acceder"
