@@ -1,3 +1,4 @@
+
 # coding: utf-8
 
 # In[ ]:
@@ -39,5 +40,8 @@ class Labels():
 					img.close()
 
 					print etiquetas
-					b=raw_input("Categoria:") #Convertir a metodo.
-					print 'Existe', len(etiquetas[b]),'imagenes en esta categoria:',etiquetas[a]
+					b=raw_input("Categoria:")
+					if b in etiquetas:
+						print 'Existe', len(etiquetas[b]),'imagenes en esta categoria:',etiquetas[a]
+					else:
+						print "No es posible encontrar esa categoria"
