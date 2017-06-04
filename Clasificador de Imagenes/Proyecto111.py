@@ -10,6 +10,7 @@ import os
 from Tkinter import *
 from PIL import ImageTk, Image
 import Tkinter as tk
+import PIL
 
 class Imagen():
 	def __init__(self, Name, Rout, Label, Weigth):
@@ -39,8 +40,26 @@ class Labels():
 
 					ventana = tk.Tk()
 					ventana.title("Clasificador de imagenes")
-					ventana.geometry('700x500')
+					ventana.geometry('1000x600')
 					ventana.configure(background='dark turquoise')
+
+					e1 = tk.Label(ventana, text="Holis", bg='black', fg='white')
+					e1.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
+
+					entrada1 = tk.Entry(ventana)
+					entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+
+					e2 = tk.Label(ventana, text="Hola mundo", bg='black', fg='white')
+					e2.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
+
+					entrada2 = tk.Entry(ventana)
+					entrada2.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+
+					img = Image.open(mypat + "/" + i)
+					res=img.resize((400, 400), Image.ANTIALIAS)
+					img2=ImageTk.PhotoImage(res)
+					label = tk.Label(ventana, image=img2)
+					label.pack()
 
 					# def hacer_click():
 					#   valor2=entrada_txt.get()
@@ -58,23 +77,6 @@ class Labels():
 					# valor=""
 					# entrada=Entry(vp,width=10,textvariable=valor)
 					# entrada.grid(column=3,row=1)
-
-					e1 = tk.Label(ventana, text="Holis", bg='black', fg='white')
-					e1.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
-
-					entrada1 = tk.Entry(ventana)
-					entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
-
-					e2 = tk.Label(ventana, text="Hola mundo", bg='black', fg='white')
-					e2.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
-
-					entrada2 = tk.Entry(ventana)
-					entrada2.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
-
-					img = Image.open(mypat + "/" + i)
-					tkimage = ImageTk.PhotoImage(img)
-					label = tk.Label(ventana, image=tkimage)
-					label.pack()
 
 					ventana.mainloop()
 
