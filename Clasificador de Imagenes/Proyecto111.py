@@ -30,38 +30,53 @@ class Labels():
 			if os.path.isdir(mypat + "/" + i):
 				pass
 			elif os.path.isfile(mypat + "/" + i):
-				if i.endswith(".jpg") or (".jpeg") or (".gif") or (".png"):
+				if i.lower().endswith(".jpg") or (".jpeg") or (".gif") or (".png"):
 					#INTERFAZ GRAFICA.(en proceso).
 
 					def hacer_click():
 						valor2 = entrada_txt.get()
 						etiqueta.config(text=valor2)
 
-					app = Tk()
-					app.title("Clasificador de imagenes")
-					app.geometry('700x500')
-					app.configure(bg='dark turquoise')
-					vp = Frame(app)
-					vp.grid(column=0, row=0, padx=(50, 50), pady=(10, 10,))
+					ventana = tk.Tk()
+					ventana.title("Clasificador de imagenes")
+					ventana.geometry('700x500')
+					ventana.configure(background='dark turquoise')
 
-					try:
-						img = ImageTk.PhotoImage(Image.open('11.jpeg'))    #prueba.
-						panel = Label(app, image=img)
-					except:
-						'Comprueba tu  archivo.'
+					# def hacer_click():
+					#   valor2=entrada_txt.get()
+					#  etiqueta.config(text=valor2)
 
-					valor = ""
-					entrada_txt = Entry(vp, width=10, textvariable=valor)
-					entrada_txt.grid(column=3, row=1)
+					# vp=Frame(ventana)
+					# vp.grid(column=0,row=0,padx=(50,50),pady=(10,10))
+					# vp.columnconfigure(0,weight=1)
+					# vp.rowconfigure(0,weight=1)
 
-					vp.columnconfigure(0, weight=1)
-					vp.rowconfigure(0, weight=1)
-					etiquetaz = Label(vp, text="Etiqueta:",fg='white')
-					etiquetaz.grid(column=1, row=1)
-					boton = Button(vp, text="Listo.",bg='dark turquoise',fg='white', command=hacer_click)
-					boton.grid(column=4, row=1)
+					# etiquetass=Label(vp,text="Escribe")
+					# etiquetass.grid(column=1,row=1)
+					# boton=Button(vp,text="Apuchame",command=hacer_click)
+					# boton.grid(column=2,row=2)
+					# valor=""
+					# entrada=Entry(vp,width=10,textvariable=valor)
+					# entrada.grid(column=3,row=1)
 
-					app.mainloop()
+					e1 = tk.Label(ventana, text="Holis", bg='black', fg='white')
+					e1.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
+
+					entrada1 = tk.Entry(ventana)
+					entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+
+					e2 = tk.Label(ventana, text="Hola mundo", bg='black', fg='white')
+					e2.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
+
+					entrada2 = tk.Entry(ventana)
+					entrada2.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+
+					img = Image.open(mypat + "/" + i)
+					tkimage = ImageTk.PhotoImage(img)
+					label = tk.Label(ventana, image=tkimage)
+					label.pack()
+
+					ventana.mainloop()
 
 	#				etiquetas = {}  #DICCIONARIO.
 	#				a = raw_input("Etiqueta:")
@@ -82,4 +97,3 @@ class Labels():
 #						print etiquetas[a]
 #					else:
 #						print "Verifique la etiqueta del elemento a acceder."
-						print "Verifique la etiqueta del elemento a acceder"
