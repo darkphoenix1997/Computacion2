@@ -1,4 +1,5 @@
 
+
 # coding: utf-8
 
 # In[ ]:
@@ -31,6 +32,13 @@ class Labels():
 				pass
 			elif os.path.isfile(mypat + "/" + i):
 				if i.lower().endswith(".jpg") or (".jpeg") or (".gif") or (".png"):
+					etiquetas = {}  # DICCIONARIO.
+					#				a = raw_input("Etiqueta:")
+					#				if a in etiquetas:
+					#					etiquetas[a].append(Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6]))
+					#				else:
+					#					etiquetas[a] = [Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6])]
+
 					#INTERFAZ GRAFICA.(en proceso).
 
 					#def hacer_click():
@@ -42,25 +50,26 @@ class Labels():
 					ventana.geometry('1000x600')
 					ventana.configure(background='dark turquoise')
 
-					def etiquetar():
-						etiquetas = {}
-						# DICCIONARIO.
-						if a in etiquetas:
-							etiquetas[a].append(Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6]))
-						else:
-							etiquetas[a] = [Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6])]
+					#def etiquetar():
+					#	etiquetas = {}
+					#	# DICCIONARIO.
+					#	if a in etiquetas:
+					#		etiquetas[a].append(Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6]))
+					#	else:
+					#		etiquetas[a] = [Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6])]
 
 					e1 = tk.Label(ventana, text="Etiqueta:", bg='black', fg='white')
 					e1.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
 
 					entrada1 = tk.Entry(ventana,width=10)
 					entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
-					entrada1.get()
-					a=entrada1.get()
+					entrada1.focus_set()
 
-					boton = tk.Button(ventana, text="Listo", bg='black', fg='white',command=etiquetar)
+					#def callback():
+					#	print text
+
+					boton = tk.Button(ventana, text="Listo", bg='black', fg='white') #,command=callback
 					boton.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
-
 
 					img = Image.open(mypat + "/" + i)
 					res=img.resize((400, 400), Image.ANTIALIAS)
@@ -85,7 +94,11 @@ class Labels():
 					# entrada=Entry(vp,width=10,textvariable=valor)
 					# entrada.grid(column=3,row=1)
 
-					ventana.mainloop()
+					mainloop()
+
+					#entrada1 = tk.Entry(ventana, width=10)
+					#entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+					#text = entrada1.get()
 
 	#				etiquetas = {}  #DICCIONARIO.
 	#				a = raw_input("Etiqueta:")
