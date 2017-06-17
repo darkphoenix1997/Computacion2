@@ -21,7 +21,6 @@ class Imagen():
 	def __repr__(self):
 		return (self.Name)
 
-
 mypat = "C:\Users\Luis Manuel\Desktop\Proyecto"
 
 
@@ -34,26 +33,34 @@ class Labels():
 				if i.lower().endswith(".jpg") or (".jpeg") or (".gif") or (".png"):
 					#INTERFAZ GRAFICA.(en proceso).
 
-					def hacer_click():
-						valor2 = entrada_txt.get()
-						etiqueta.config(text=valor2)
+					#def hacer_click():
+					#	valor2 = entrada_txt.get()
+					#	etiqueta.config(text=valor2)
 
 					ventana = tk.Tk()
 					ventana.title("Clasificador de imagenes")
 					ventana.geometry('1000x600')
 					ventana.configure(background='dark turquoise')
 
-					e1 = tk.Label(ventana, text="Holis", bg='black', fg='white')
+					def etiquetar():
+						etiquetas = {}
+						# DICCIONARIO.
+						if a in etiquetas:
+							etiquetas[a].append(Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6]))
+						else:
+							etiquetas[a] = [Imagen(i, mypat, a, os.stat(mypat + "/" + i)[6])]
+
+					e1 = tk.Label(ventana, text="Etiqueta:", bg='black', fg='white')
 					e1.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
 
-					entrada1 = tk.Entry(ventana)
+					entrada1 = tk.Entry(ventana,width=10)
 					entrada1.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
+					entrada1.get()
+					a=entrada1.get()
 
-					e2 = tk.Label(ventana, text="Hola mundo", bg='black', fg='white')
-					e2.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
+					boton = tk.Button(ventana, text="Listo", bg='black', fg='white',command=etiquetar)
+					boton.pack(padx=5, pady=5, ipadx=5, ipady=5, fill=tk.X)
 
-					entrada2 = tk.Entry(ventana)
-					entrada2.pack(fill=tk.X, padx=5, pady=5, ipadx=5, ipady=5)
 
 					img = Image.open(mypat + "/" + i)
 					res=img.resize((400, 400), Image.ANTIALIAS)
